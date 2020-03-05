@@ -1,6 +1,7 @@
 # Crypto Fetcher
 
 Track your favorite crypto currencies. 
+
 Designed to showcase Elixir basic concurrency concepts (`spawn`, `mailboxes`, `receive`) and the Actor Concurrency Model.
  
  ## Start
