@@ -1,14 +1,13 @@
 defmodule Client do
 
-  @portefolio ["ethereum-classic", "golem", "litecoin"]
+  @portefolio ["ethereum-classic", "bitcoin", "litecoin"]
 
   def request_portefolio(server_pid) do
-    send(server_pid, {:fetch_portefolio, @portefolio, self()})
+    send(server_pid, {self(), :fetch_portefolio, @portefolio})
 
     receive do
       {:portefolio, portefolio} ->
-        IO.puts("--- Cryptfolio ----")
-        portefolio |> IO.inspect()
+        portefolio
     after 5000 ->
       {:error, :timeout}
     end

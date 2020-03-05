@@ -8,8 +8,8 @@ defmodule Server do
 
   defp loop do
     receive do
-      {:fetch_portefolio, portefolio, caller} ->
-        portefolio |> Enum.map(&fetch_crypto/1) |> send_response_to_client(caller)
+      {sender, :fetch_portefolio, portefolio} ->
+        portefolio |> Enum.map(&fetch_crypto/1) |> send_response_to_client(sender)
     end
 
     loop()
